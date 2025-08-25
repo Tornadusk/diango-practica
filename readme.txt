@@ -270,6 +270,8 @@ login/
 - **Redirección automática**: Usuarios no autenticados son enviados al login
 - **Mensajes informativos**: Se muestran mensajes de error claros
 
+**Nota de Arquitectura**: Actualmente se usa `misitio/decorators.py` para el decorador personalizado. Para proyectos más grandes, considera migrar a `misitio/utils.py` para centralizar decoradores, funciones auxiliares y constantes comunes.
+
 ### **Sistema de Sesiones**
 - **MongoDB**: Almacena información de usuarios
 - **Django Sessions**: Maneja el estado de autenticación
@@ -374,3 +376,4 @@ Si tienes problemas o preguntas:
 - [ ] Agregar validaciones de seguridad adicionales
 - [ ] Agregar más funcionalidades al sidebar
 - [ ] Implementar sistema de notificaciones
+- [ ] Considerar migración a `utils.py` para mejor organización de utilidades
