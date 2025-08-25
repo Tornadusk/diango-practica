@@ -14,6 +14,9 @@ Este es un proyecto Django que incluye múltiples aplicaciones para crear un sit
 - ✅ CSS moderno con glassmorphism y animaciones
 - ✅ JavaScript global para funcionalidades del sidebar
 - ✅ Sistema de navegación mejorado
+- ✅ Protección de rutas con decorador @login_required
+- ✅ Redirección automática al login para usuarios no autenticados
+- ✅ Mensajes de error informativos para acceso no autorizado
 
 ### v1.3.0 - Sistema de Login y Registro con MongoDB (25/08/2025)
 - ✅ Sistema de autenticación completo con MongoDB
@@ -259,6 +262,20 @@ login/
 - ✅ **Separación de responsabilidades**: Login no interfiere con otras apps
 - ✅ **Flexibilidad**: Login mantiene sus estilos, otras apps usan globales
 
+## 🔒 Seguridad y Autenticación
+
+### **Protección de Rutas**
+- **Decorador `@login_required`**: Protege todas las páginas que requieren autenticación
+- **Rutas protegidas**: `/index/`, `/index/home/`, `/carrito/`
+- **Redirección automática**: Usuarios no autenticados son enviados al login
+- **Mensajes informativos**: Se muestran mensajes de error claros
+
+### **Sistema de Sesiones**
+- **MongoDB**: Almacena información de usuarios
+- **Django Sessions**: Maneja el estado de autenticación
+- **Logout**: Cierra la sesión y redirige al login
+- **Persistencia**: La sesión se mantiene entre páginas
+
 ## 🔧 Solución de Problemas
 
 ### Error de puerto ocupado
@@ -330,6 +347,9 @@ Si tienes problemas o preguntas:
 - ✅ Página principal (index.html) reorganizada en Sitio/templates/
 - ✅ Rutas organizadas (login como principal, index como secundaria)
 - ✅ Estructura de archivos más profesional y organizada
+- ✅ Protección de rutas con decorador @login_required
+- ✅ Redirección automática al login para usuarios no autenticados
+- ✅ Mensajes de error informativos para acceso no autorizado
 - ✅ Migraciones aplicadas correctamente
 - ✅ Admin de Django accesible
 

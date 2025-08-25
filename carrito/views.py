@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from misitio.decorators import login_required
 
+@login_required
 def carrito_view(request):
     """Vista del carrito de compras"""
     # Obtener información del usuario de la sesión
