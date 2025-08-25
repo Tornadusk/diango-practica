@@ -4,6 +4,17 @@ Este es un proyecto Django que incluye múltiples aplicaciones para crear un sit
 
 ## 📝 Historial de Actualizaciones
 
+### v1.5.0 - Sistema de Mensajes con Auto-ocultamiento (25/08/2025)
+- ✅ Mensajes de Django con auto-ocultamiento automático
+- ✅ CSS inteligente para diferentes tipos de mensajes (success, error, info, warning)
+- ✅ Animaciones suaves de entrada y salida para mensajes
+- ✅ Estilos modernos para mensajes del sistema
+- ✅ Código JavaScript simplificado y optimizado
+- ✅ Eliminación de código innecesario y complejo
+- ✅ Solución elegante: CSS vs JavaScript para mensajes
+- ✅ Mensajes de bienvenida se ocultan después de 5 segundos
+- ✅ Sistema de mensajes completamente funcional
+
 ### v1.4.0 - Sidebar Global y Reorganización de Templates (25/08/2025)
 - ✅ Sidebar global implementado con funcionalidad completa
 - ✅ Botón inteligente que se reposiciona automáticamente
@@ -145,7 +156,9 @@ diango-practica-main/
   - ✅ Botón inteligente del sidebar que se reposiciona
   - ✅ CSS moderno con glassmorphism y animaciones
   - ✅ JavaScript global para funcionalidades del sidebar
-  - ✅ Contenido principal estático (no se mueve)
+- ✅ Contenido principal estático (no se mueve)
+- ✅ Mensajes principales de bienvenida permanecen visibles
+- ✅ Mensaje personal de bienvenida con auto-ocultamiento inteligente (en todas las páginas y navegación)
 
 ### Login (Aplicación de Autenticación)
 - **Ruta principal**: `/` - Sistema de login (página de entrada)

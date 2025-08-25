@@ -100,6 +100,8 @@ function initializeSidebar() {
                 setTimeout(() => {
                     closeSidebar();
                 }, 100);
+                
+                // Las funcionalidades de auto-ocultamiento se manejan con CSS
             }
         });
     });
@@ -282,6 +284,32 @@ function initializeGlobalFeatures() {
             });
         }
     };
+    
+        // Función para hacer que los mensajes de bienvenida desaparezcan automáticamente
+    // NOTA: Los mensajes principales permanecen visibles
+    function autoHideWelcomeMessages() {
+        console.log('🔍 Los mensajes principales de bienvenida permanecen visibles');
+        // No se ocultan los mensajes principales
+    }
+    
+    // Función para hacer que el mensaje de bienvenida personal desaparezca
+    // NOTA: Esta funcionalidad se maneja con CSS para los mensajes de Django
+    function autoHidePersonalWelcome() {
+        console.log('🔍 Los mensajes de bienvenida se ocultan automáticamente con CSS');
+        // Los mensajes de Django se ocultan con CSS, no con JavaScript
+    }
+    
+    // Función para ejecutar las funcionalidades de auto-ocultamiento
+    function executeAutoHideFeatures() {
+        setTimeout(autoHideWelcomeMessages, 1000);
+        setTimeout(autoHidePersonalWelcome, 1000);
+    }
+    
+    // Hacer la función disponible globalmente para otros scripts
+    window.executeAutoHideFeatures = executeAutoHideFeatures;
+    
+    // Ejecutar las funciones cuando se cargue la página
+    executeAutoHideFeatures();
     
     console.log('Funcionalidades globales inicializadas');
 }

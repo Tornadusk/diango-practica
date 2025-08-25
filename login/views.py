@@ -31,6 +31,7 @@ def login_view(request):
             request.session['username'] = username
             
             messages.success(request, f'¡Bienvenido {username}!')
+            # El mensaje se ocultará automáticamente con CSS
             return redirect('/index/')  # Redirigir a la página principal
         except Usuario.DoesNotExist:
             messages.error(request, 'Usuario o contraseña incorrectos')

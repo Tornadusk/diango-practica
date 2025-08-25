@@ -215,6 +215,71 @@ a:hover {
     font-weight: 500;
 }
 
+/* ===== MENSAJES DE DJANGO CON AUTO-OCULTAMIENTO ===== */
+.messages .message {
+    animation: fadeOutMessage 4s ease forwards;
+    animation-delay: 1s; /* Esperar 1 segundo antes de empezar */
+}
+
+/* Estilos específicos para diferentes tipos de mensajes */
+.messages .message.success {
+    background: var(--success-color);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.messages .message.error {
+    background: var(--error-color);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.messages .message.info {
+    background: var(--info-color);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.messages .message.warning {
+    background: var(--warning-color);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+@keyframes fadeOutMessage {
+    0% { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+    80% { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+}
+
+/* Mensajes de error permanecen visibles más tiempo */
+.messages .alert-danger {
+    animation-delay: 3s; /* Esperar 3 segundos */
+    animation-duration: 6s; /* Duración total de 6 segundos */
+}
+
 .logout-btn {
     background: var(--gradient-primary);
     color: var(--white);
@@ -419,6 +484,23 @@ a:hover {
     margin: 0 auto;
 }
 
+/* Animación de entrada para mensajes de bienvenida */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-title,
+.welcome-subtitle {
+    animation: fadeInUp 1s ease forwards;
+}
+
 .main-content.sidebar-open {
     /* El contenido se mantiene en su posición original */
     margin-left: 0;
@@ -456,6 +538,7 @@ a:hover {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 .welcome-title::after {
@@ -475,6 +558,7 @@ a:hover {
     color: var(--gray);
     margin-bottom: var(--spacing-lg);
     font-weight: 400;
+    transition: opacity 1s ease, transform 1s ease;
 }
 
 /* Mensajes del sistema modernos */
