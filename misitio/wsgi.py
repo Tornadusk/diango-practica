@@ -13,4 +13,11 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'misitio.settings')
 
+# Conectar a MongoDB al iniciar la aplicación
+try:
+    from .mongo_config import connect_to_mongodb
+    connect_to_mongodb()
+except ImportError:
+    pass
+
 application = get_wsgi_application()

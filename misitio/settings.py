@@ -81,6 +81,11 @@ DATABASES = {
     }
 }
 
+# Configuración de MongoDB para mongoengine
+MONGODB_HOST = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_NAME = 'mi_sitio_db'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
