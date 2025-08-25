@@ -275,6 +275,36 @@ login/
 - ✅ **Separación de responsabilidades**: Login no interfiere con otras apps
 - ✅ **Flexibilidad**: Login mantiene sus estilos, otras apps usan globales
 
+## 💬 Sistema de Mensajes del Sistema
+
+### **Características del Sistema de Mensajes**
+- ✅ **Auto-ocultamiento**: Los mensajes desaparecen automáticamente después de 5 segundos
+- ✅ **Tipos de mensajes**: Success, Error, Info, Warning con estilos diferenciados
+- ✅ **Animaciones suaves**: Entrada y salida con transiciones CSS
+- ✅ **Estilos modernos**: Colores, sombras y bordes redondeados
+- ✅ **Responsive**: Se adapta a diferentes tamaños de pantalla
+
+### **Tipos de Mensajes Disponibles**
+```python
+# En las views de Django
+messages.success(request, '¡Bienvenido!')      # Verde - Auto-ocultamiento
+messages.error(request, 'Error en login')     # Rojo - Auto-ocultamiento
+messages.info(request, 'Información')         # Azul - Auto-ocultamiento
+messages.warning(request, 'Advertencia')      # Amarillo - Auto-ocultamiento
+```
+
+### **Implementación Técnica**
+- **CSS**: Maneja el auto-ocultamiento y estilos
+- **JavaScript**: Solo para funcionalidades del sidebar (no para mensajes)
+- **Django**: Sistema nativo de mensajes integrado
+- **Templates**: Los mensajes se muestran automáticamente en todas las páginas
+
+**Ventajas de esta implementación:**
+- ✅ **Eficiencia**: CSS es más rápido que JavaScript para animaciones
+- ✅ **Simplicidad**: Código más limpio y mantenible
+- ✅ **Confiabilidad**: Menos dependencias de JavaScript
+- ✅ **Accesibilidad**: Funciona incluso si JavaScript está deshabilitado
+
 ## 🔒 Seguridad y Autenticación
 
 ### **Protección de Rutas**
@@ -292,6 +322,28 @@ login/
 - **Persistencia**: La sesión se mantiene entre páginas
 
 ## 🔧 Solución de Problemas
+
+### **Lecciones Aprendidas y Mejores Prácticas**
+
+#### **1. Sistema de Mensajes - CSS vs JavaScript**
+- **❌ Enfoque inicial**: JavaScript complejo con MutationObserver y múltiples timeouts
+- **✅ Solución final**: CSS simple con animaciones y auto-ocultamiento
+- **💡 Lección**: Siempre evaluar si CSS puede resolver el problema antes de usar JavaScript
+
+#### **2. Organización de Código**
+- **❌ Código innecesario**: Funciones complejas que no resolvían el problema real
+- **✅ Código limpio**: Funcionalidades específicas y bien definidas
+- **💡 Lección**: Identificar la causa raíz antes de implementar soluciones complejas
+
+#### **3. Debugging Efectivo**
+- **❌ Suposiciones**: Asumir que el problema estaba en el frontend
+- **✅ Investigación**: Verificar el flujo completo (Django → Templates → CSS → JavaScript)
+- **💡 Lección**: El debugging debe ser sistemático y cubrir toda la cadena de ejecución
+
+#### **4. Arquitectura de Archivos Estáticos**
+- **✅ Mezcla inteligente**: Archivos globales para funcionalidades compartidas
+- **✅ Específicos por app**: CSS/JS específicos para funcionalidades únicas
+- **💡 Lección**: No hay una regla única, cada proyecto tiene necesidades diferentes
 
 ### Error de puerto ocupado
 ```bash
@@ -336,7 +388,7 @@ Si tienes problemas o preguntas:
 
 ## 📊 Estado Actual del Proyecto
 
-**Versión**: v1.4.0  
+**Versión**: v1.5.0  
 **Última actualización**: 25 de Agosto, 2025  
 **Django**: 5.2.5  
 **Python**: 3.13  
@@ -365,6 +417,10 @@ Si tienes problemas o preguntas:
 - ✅ Protección de rutas con decorador @login_required
 - ✅ Redirección automática al login para usuarios no autenticados
 - ✅ Mensajes de error informativos para acceso no autorizado
+- ✅ Sistema de mensajes con auto-ocultamiento automático
+- ✅ CSS inteligente para diferentes tipos de mensajes
+- ✅ Animaciones suaves para entrada y salida de mensajes
+- ✅ Código JavaScript optimizado y simplificado
 - ✅ Migraciones aplicadas correctamente
 - ✅ Admin de Django accesible
 
@@ -383,6 +439,10 @@ Si tienes problemas o preguntas:
 - [x] Header flotante y botón inteligente del sidebar
 - [x] CSS moderno con glassmorphism y animaciones
 - [x] Reorganización profesional de templates
+- [x] Sistema de mensajes con auto-ocultamiento automático
+- [x] Código JavaScript optimizado y simplificado
+- [x] CSS inteligente para diferentes tipos de mensajes
+- [x] Animaciones suaves para entrada y salida de mensajes
 - [ ] Crear archivo `requirements.txt`
 - [ ] Agregar más funcionalidades al carrito
 - [ ] Implementar logout y gestión de sesiones
