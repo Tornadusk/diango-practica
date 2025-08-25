@@ -19,5 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Sitio.urls')),
+    path('', include('login.urls')),  # Login como ruta principal
+    path('index/', include('Sitio.urls')),  # Index como segunda ruta
+    path('carrito/', include('carrito.urls')),  # Carrito con sidebar
 ]

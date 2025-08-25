@@ -4,6 +4,25 @@ Este es un proyecto Django que incluye múltiples aplicaciones para crear un sit
 
 ## 📝 Historial de Actualizaciones
 
+### v1.4.0 - Sidebar Global y Reorganización de Templates (25/08/2025)
+- ✅ Sidebar global implementado con funcionalidad completa
+- ✅ Botón inteligente que se reposiciona automáticamente
+- ✅ Header flotante que no ocupa espacio del contenido
+- ✅ Contenido principal estático (no se mueve con el sidebar)
+- ✅ Reorganización de templates: index.html movido a Sitio/templates/
+- ✅ Estructura de archivos más organizada y profesional
+- ✅ CSS moderno con glassmorphism y animaciones
+- ✅ JavaScript global para funcionalidades del sidebar
+- ✅ Sistema de navegación mejorado
+
+### v1.3.0 - Sistema de Login y Registro con MongoDB (25/08/2025)
+- ✅ Sistema de autenticación completo con MongoDB
+- ✅ Formulario de registro con validaciones
+- ✅ Formulario de login funcional
+- ✅ Estructura de archivos estáticos por app (como Angular)
+- ✅ CSS y JavaScript específicos para login
+- ✅ Redirección automática después del login
+
 ### v1.2.0 - Configuración MongoDB (24/08/2025)
 - ✅ Configurado MongoDB con mongoengine
 - ✅ Actualizado Django a versión 5.2.5
@@ -86,19 +105,56 @@ diango-practica-main/
 ├── Sitio/                  # Aplicación principal del sitio
 │   ├── views.py           # Vistas de la aplicación
 │   ├── urls.py            # URLs de la aplicación
-│   └── models.py          # Modelos de datos
+│   ├── models.py          # Modelos de datos
+│   ├── static/            # Archivos estáticos globales
+│   │   ├── css/main.css   # Estilos globales del sitio
+│   │   └── js/main.js     # JavaScript global del sitio
+│   └── templates/         # Templates específicos de la app
+│       └── index.html     # Página principal (movida aquí)
+├── login/                  # Aplicación de autenticación
+│   ├── models.py          # Modelo Usuario en MongoDB
+│   ├── views.py           # Vistas de login y registro
+│   ├── urls.py            # URLs de autenticación
+│   ├── static/            # Archivos estáticos específicos
+│   │   └── login/
+│   │       ├── css/       # Estilos específicos de login
+│   │       └── js/        # JavaScript específico de login
+│   └── templates/         # Templates específicos de login
+│       └── login/
+│           ├── login.html # Formulario de login
+│           └── register.html # Formulario de registro
 ├── carrito/                # Aplicación del carrito de compras
 ├── servicios/              # Aplicación de servicios
 ├── templates/              # Templates generales del proyecto
-│   └── index.html         # Página principal
+│   └── base.html          # Plantilla base con sidebar y header global
 └── manage.py               # Script de administración de Django
 ```
 
 ## 🌐 Aplicaciones Incluidas
 
 ### Sitio (Aplicación Principal)
-- **Ruta principal** (`/`): Muestra `index.html`
-- **Ruta home** (`/home/`): Muestra mensaje de texto
+- **Ruta principal** (`/`): Sistema de login (página de entrada)
+- **Ruta index** (`/index/`): Muestra `index.html` (página principal)
+- **Ruta home** (`/index/home/`): Muestra mensaje de texto
+- **Funcionalidades**:
+  - ✅ Sidebar global con navegación completa
+  - ✅ Header flotante con botón de logout
+  - ✅ Botón inteligente del sidebar que se reposiciona
+  - ✅ CSS moderno con glassmorphism y animaciones
+  - ✅ JavaScript global para funcionalidades del sidebar
+  - ✅ Contenido principal estático (no se mueve)
+
+### Login (Aplicación de Autenticación)
+- **Ruta principal**: `/` - Sistema de login (página de entrada)
+- **Ruta registro**: `/register/` - Formulario de registro
+- **Templates**: `login.html` y `register.html` con CSS y JavaScript específicos
+- **Funcionalidades**: 
+  - ✅ Login con MongoDB
+  - ✅ Registro de usuarios en MongoDB
+  - ✅ Validaciones en tiempo real con JavaScript
+  - ✅ Estilos CSS específicos de la app
+  - ✅ Redirección automática después del login
+  - ✅ Estructura de archivos estáticos por app (como Angular)
 
 ### Carrito
 - Aplicación para gestión de carrito de compras
@@ -170,6 +226,39 @@ pip install django==3.1.12
 # Modificar settings.py para usar djongo
 ```
 
+## 🎨 Estructura de Archivos Estáticos
+
+### **Archivos Estáticos Globales (Sitio app)**
+```
+Sitio/static/
+├── css/main.css           # Estilos globales del sitio
+└── js/main.js             # JavaScript global del sitio
+```
+
+**Funcionalidades globales:**
+- ✅ **Sidebar**: Navegación completa con animaciones
+- ✅ **Header**: Header flotante con botón de logout
+- ✅ **CSS moderno**: Glassmorphism, gradientes, animaciones
+- ✅ **JavaScript global**: Funcionalidades del sidebar y utilidades
+
+### **Archivos Estáticos por App (Como Angular)**
+```
+login/
+├── static/login/
+│   ├── css/login.css      # Estilos específicos de login
+│   └── js/login.js        # JavaScript específico de login
+└── templates/login/
+    ├── login.html          # Template de login
+    └── register.html       # Template de registro
+```
+
+**Ventajas:**
+- ✅ **Modularidad**: Cada app maneja sus propios recursos
+- ✅ **Organización**: Fácil de mantener y escalar
+- ✅ **Reutilización**: CSS y JS específicos por funcionalidad
+- ✅ **Separación de responsabilidades**: Login no interfiere con otras apps
+- ✅ **Flexibilidad**: Login mantiene sus estilos, otras apps usan globales
+
 ## 🔧 Solución de Problemas
 
 ### Error de puerto ocupado
@@ -215,8 +304,8 @@ Si tienes problemas o preguntas:
 
 ## 📊 Estado Actual del Proyecto
 
-**Versión**: v1.2.0  
-**Última actualización**: 24 de Agosto, 2025  
+**Versión**: v1.4.0  
+**Última actualización**: 25 de Agosto, 2025  
 **Django**: 5.2.5  
 **Python**: 3.13  
 **Base de datos**: SQLite + MongoDB  
@@ -225,8 +314,22 @@ Si tienes problemas o preguntas:
 **Funcionalidades implementadas:**
 - ✅ Servidor Django funcionando
 - ✅ Conexión a MongoDB establecida
-- ✅ Página principal (index.html) configurada
-- ✅ Rutas organizadas (index como principal, home como secundaria)
+- ✅ Sistema de autenticación completo con MongoDB
+- ✅ Aplicación de login con estructura Angular (archivos estáticos por app)
+- ✅ Formulario de registro funcional
+- ✅ Formulario de login funcional
+- ✅ Validaciones en tiempo real con JavaScript
+- ✅ Estilos CSS específicos para login
+- ✅ Redirección automática después del login
+- ✅ Sidebar global con navegación completa
+- ✅ Header flotante con botón de logout inteligente
+- ✅ Botón del sidebar que se reposiciona automáticamente
+- ✅ CSS moderno con glassmorphism y animaciones
+- ✅ JavaScript global para funcionalidades del sidebar
+- ✅ Contenido principal estático (no se mueve con el sidebar)
+- ✅ Página principal (index.html) reorganizada en Sitio/templates/
+- ✅ Rutas organizadas (login como principal, index como secundaria)
+- ✅ Estructura de archivos más profesional y organizada
 - ✅ Migraciones aplicadas correctamente
 - ✅ Admin de Django accesible
 
@@ -237,9 +340,17 @@ Si tienes problemas o preguntas:
 - [x] Solucionar compatibilidad con Python 3.13
 - [x] Reorganizar estructura de templates
 - [x] Configurar rutas principales
+- [x] Implementar sistema de usuarios con MongoDB
+- [x] Crear aplicación de login completa
+- [x] Estructura de archivos estáticos por app (como Angular)
+- [x] Sistema de registro y autenticación
+- [x] Sidebar global con funcionalidades completas
+- [x] Header flotante y botón inteligente del sidebar
+- [x] CSS moderno con glassmorphism y animaciones
+- [x] Reorganización profesional de templates
 - [ ] Crear archivo `requirements.txt`
 - [ ] Agregar más funcionalidades al carrito
-- [ ] Implementar sistema de usuarios
-- [ ] Agregar estilos CSS
-- [ ] Configurar autenticación en MongoDB
-- [ ] Crear modelos de ejemplo con mongoengine
+- [ ] Implementar logout y gestión de sesiones
+- [ ] Agregar validaciones de seguridad adicionales
+- [ ] Agregar más funcionalidades al sidebar
+- [ ] Implementar sistema de notificaciones
